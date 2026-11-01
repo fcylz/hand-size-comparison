@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-CN">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>✋手の大きさ比較ツール</title>
+    <title>✋手掌大小对比工具</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; background: #fdf6e3; padding: 10px; color: #333; margin: 0; }
+        body { font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif; text-align: center; background: #fdf6e3; padding: 10px; color: #333; margin: 0; }
         .container { max-width: 700px; margin: 20px auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         h1 { font-size: 1.5rem; margin-bottom: 10px; color: #444; }
         .description { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.6; }
@@ -25,7 +25,7 @@
         
         .hand-wrapper { 
             position: absolute; 
-            bottom: 40px; /* 手首の位置 */
+            bottom: 40px; /* 手腕的位置 */
             left: 50%; 
             transform: translateX(-50%); 
             display: flex; 
@@ -98,39 +98,39 @@
 <body>
 
 <div class="container">
-    <h1>✋手の大きさ比較ツール</h1> 
+    <h1>✋手掌大小对比工具</h1> 
     <p class="description">
-        性別と身長から手の大きさを推測して比較できます。<br>
-        実際の手の大きさを入力して比較することもできます。<br>
-        <small>※初期値は日本人の各性別の平均値です。個人差があるため数値は目安です。<br>
-        （出典：産総研人体寸法データベース等を参考にした推測値）</small>
+        可以根据性别和身高推测手掌大小并进行对比。<br>
+        也可以输入实际手掌大小来进行对比。<br>
+        <small>※初始值为各性别的平均值，个人差异较大，数值仅供参考。<br>
+        （数据来源：参考日本产业技术综合研究所人体尺寸数据库等的推算值）</small>
     </p>
 
     <div class="controls">
         <div class="input-group group-a">
             <strong>A</strong>
-            <input type="text" id="nameInputA" placeholder="名前A" oninput="update()">
+            <input type="text" id="nameInputA" placeholder="名字A" oninput="update()">
             <select id="genderA" onchange="calcFromHeight('A')">
                 <option value="male">男</option>
                 <option value="female">女</option>
             </select>
-            <div><span class="hint">身長(cm)</span><input type="number" id="heightA" class="num-input" value="171.5" oninput="calcFromHeight('A')"></div>
-            <div style="border-left: 1px solid #ccc; padding-left: 8px;"><span class="hint">手首〜中指先(cm)※優先</span><input type="number" id="handA" class="num-input" value="18.5" step="0.1" oninput="calcFromHand('A')"></div>
+            <div><span class="hint">身高(cm)</span><input type="number" id="heightA" class="num-input" value="171.5" oninput="calcFromHeight('A')"></div>
+            <div style="border-left: 1px solid #ccc; padding-left: 8px;"><span class="hint">手腕～中指指尖(cm)※优先</span><input type="number" id="handA" class="num-input" value="18.5" step="0.1" oninput="calcFromHand('A')"></div>
             <input type="color" id="colorA" class="color-picker" value="#ffcc99" oninput="update()">
-            <button class="btn-front" onclick="bringToFront('A')">前面へ</button>
+            <button class="btn-front" onclick="bringToFront('A')">移到前面</button>
         </div>
 
         <div class="input-group group-b">
             <strong>B</strong>
-            <input type="text" id="nameInputB" placeholder="名前B" oninput="update()">
+            <input type="text" id="nameInputB" placeholder="名字B" oninput="update()">
             <select id="genderB" onchange="calcFromHeight('B')">
                 <option value="male">男</option>
                 <option value="female" selected>女</option>
             </select>
-            <div><span class="hint">身長(cm)</span><input type="number" id="heightB" class="num-input" value="158.0" oninput="calcFromHeight('B')"></div>
-            <div style="border-left: 1px solid #ccc; padding-left: 8px;"><span class="hint">手首〜中指先(cm)※優先</span><input type="number" id="handB" class="num-input" value="16.6" step="0.1" oninput="calcFromHand('B')"></div>
+            <div><span class="hint">身高(cm)</span><input type="number" id="heightB" class="num-input" value="158.0" oninput="calcFromHeight('B')"></div>
+            <div style="border-left: 1px solid #ccc; padding-left: 8px;"><span class="hint">手腕～中指指尖(cm)※优先</span><input type="number" id="handB" class="num-input" value="16.6" step="0.1" oninput="calcFromHand('B')"></div>
             <input type="color" id="colorB" class="color-picker" value="#ffad60" oninput="update()">
-            <button class="btn-front" onclick="bringToFront('B')">前面へ</button>
+            <button class="btn-front" onclick="bringToFront('B')">移到前面</button>
         </div>
     </div>
     
@@ -156,18 +156,18 @@
     </div>
 
     <div class="share-area">
-        <button class="btn-share" onclick="shareOnX()">𝕏 で結果をシェアする</button>
+        <button class="btn-share" onclick="shareOnX()">𝕏 分享结果</button>
         
         <div class="other-tools-link">
-            <p style="font-size: 12px; color: #888; margin-bottom: 10px;">こちらもチェック❣🤩</p>
+            <p style="font-size: 12px; color: #888; margin-bottom: 10px;">顺便也看看这些❣🤩</p>
             <a href="https://qwertyaz111.github.io/my-site-hub/">
-                ツール・シミュレーター一覧
+                工具・模拟器合集
             </a>
         </div>
 
         <div class="license-text">
-            スクショ投稿や加工、トレース等はご自由にお楽しみください。<br>
-            ※営利目的や商用利用はご遠慮ください。
+            截图分享、二次加工、临摹描图等都可以随意使用。<br>
+            ※请勿用于营利、商业用途。
         </div>
     </div>
 </div>
@@ -197,8 +197,8 @@
     }
 
     function update() {
-        const nameA = document.getElementById('nameInputA').value || "名前A";
-        const nameB = document.getElementById('nameInputB').value || "名前B";
+        const nameA = document.getElementById('nameInputA').value || "名字A";
+        const nameB = document.getElementById('nameInputB').value || "名字B";
         const handA = parseFloat(document.getElementById('handA').value) || 0;
         const handB = parseFloat(document.getElementById('handB').value) || 0;
         
@@ -231,16 +231,83 @@
     }
 
     function shareOnX() {
-        const nameA = document.getElementById('nameInputA').value || "名前A";
-        const nameB = document.getElementById('nameInputB').value || "名前B";
+        const nameA = document.getElementById('nameInputA').value || "名字A";
+        const nameB = document.getElementById('nameInputB').value || "名字B";
         const handA = document.getElementById('handA').value;
         const handB = document.getElementById('handB').value;
-        const text = encodeURIComponent(`${nameA}(${handA}cm)と${nameB}(${handB}cm)の手の大きさを比較しました！\n#手の大きさ比較ツール\n`);
+        const text = encodeURIComponent(`${nameA}(${handA}cm) 和 ${nameB}(${handB}cm) 的手掌大小对比结果！\n#手掌大小对比工具\n`);
         const url = encodeURIComponent(window.location.href);
         window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
     }
 
     window.onload = update;
+</script>
+
+<script>
+/* 设置持久化：名字・身高・颜色等会记住，刷新后自动恢复 */
+(function () {
+  var KEY = 'simSettings:' + location.pathname;
+  var SKIP = { seek: 1, pVol: 1 };
+  function list() {
+    var els = document.querySelectorAll('input,select,textarea'), out = [], i, el;
+    for (i = 0; i < els.length; i++) {
+      el = els[i];
+      if (el.type === 'file' || el.type === 'button' || el.type === 'submit' || el.type === 'reset') continue;
+      if (el.id && SKIP[el.id]) continue;
+      out.push(el);
+    }
+    return out;
+  }
+  function keyOf(el) {
+    if (el.id) return 'id:' + el.id;
+    var cn = (el.className || '').split(/\s+/)[0];
+    if (!cn) return null;
+    var sibs = document.querySelectorAll(el.tagName.toLowerCase() + '[class~="' + cn + '"]'), i;
+    for (i = 0; i < sibs.length; i++) if (sibs[i] === el) return 'cls:' + cn + ':' + i;
+    return null;
+  }
+  function get(el) {
+    return (el.type === 'checkbox' || el.type === 'radio') ? el.checked : el.value;
+  }
+  function set(el, v) {
+    var i;
+    if (el.tagName === 'SELECT') {
+      var ok = false;
+      for (i = 0; i < el.options.length; i++) if (el.options[i].value === v) ok = true;
+      if (!ok) return;
+    }
+    if (el.type === 'checkbox' || el.type === 'radio') el.checked = !!v;
+    else el.value = v;
+  }
+  function fire(el, type) {
+    try { el.dispatchEvent(new Event(type, { bubbles: true })); } catch (e) {}
+  }
+  function restore() {
+    var raw = null, data = null, els, k, i;
+    try { raw = localStorage.getItem(KEY); } catch (e) { return; }
+    if (!raw) return;
+    try { data = JSON.parse(raw); } catch (e) { return; }
+    els = list();
+    for (i = 0; i < els.length; i++) { k = keyOf(els[i]); if (k && data[k] !== undefined) set(els[i], data[k]); }
+    for (i = 0; i < els.length; i++) { fire(els[i], 'input'); fire(els[i], 'change'); }
+    for (i = 0; i < els.length; i++) { k = keyOf(els[i]); if (k && data[k] !== undefined) set(els[i], data[k]); }
+  }
+  var timer = null;
+  function save() {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function () {
+      var els = list(), data = {}, k, i;
+      for (i = 0; i < els.length; i++) { k = keyOf(els[i]); if (k) data[k] = get(els[i]); }
+      try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+    }, 200);
+  }
+  document.addEventListener('input', save, true);
+  document.addEventListener('change', save, true);
+  window.addEventListener('load', restore);
+  window.__simSettings = {
+    clear: function () { try { localStorage.removeItem(KEY); } catch (e) {} }
+  };
+})();
 </script>
 </body>
 </html>
